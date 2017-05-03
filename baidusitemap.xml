@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://yffblog.xyz/2017/04/04/yff-3/</loc>
+    <lastmod>2017-04-04T07:53:07.033Z</lastmod>
+    <data>
+        <display>
+        <title>2017年清明节这天</title>
+        <pubTime>2017-04-04T07:53:59.000Z</pubTime>
+        
+        <tag>大四是个谜</tag>
+         
+         
+           
+             
+              <breadCrumb title="普通日志" url="http://yffblog.xyz/categories/%E6%99%AE%E9%80%9A%E6%97%A5%E5%BF%97/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yffblog.xyz/2016/12/20/learn-python/</loc>
+    <lastmod>2017-01-09T13:17:45.695Z</lastmod>
+    <data>
+        <display>
+        <title>Python的学习心得</title>
+        <pubTime>2016-12-20T08:06:26.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+        <tag>Machine Learning</tag>
+         
+         
+           
+             
+              <breadCrumb title="Machine Learning" url="http://yffblog.xyz/categories/Machine-Learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yffblog.xyz/2016/12/19/first/</loc>
+    <lastmod>2016-12-27T12:29:48.033Z</lastmod>
+    <data>
+        <display>
+        <title>推免全程</title>
+        <pubTime>2016-12-19T08:31:17.000Z</pubTime>
+        
+        <tag>保研</tag>
+         
+        <tag>浙江大学</tag>
+         
+         
+           
+             
+              <breadCrumb title="推免日志" url="http://yffblog.xyz/categories/%E6%8E%A8%E5%85%8D%E6%97%A5%E5%BF%97/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+</urlset>

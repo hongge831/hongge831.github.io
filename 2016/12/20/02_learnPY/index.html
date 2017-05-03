@@ -1,0 +1,629 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Python,Machine Learning," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="一直是看着别人写的博客和教程在摸索，这次趁着有一段空闲的时间一定要记录一下自己的学习过程，于是想用几篇日志主要想记录一下自己学习机器学习以及python的过程。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python的学习心得">
+<meta property="og:url" content="https://github.com/hongge831/2016/12/20/02_learnPY/index.html">
+<meta property="og:site_name" content="Hongge'blog">
+<meta property="og:description" content="一直是看着别人写的博客和教程在摸索，这次趁着有一段空闲的时间一定要记录一下自己的学习过程，于是想用几篇日志主要想记录一下自己学习机器学习以及python的过程。">
+<meta property="og:updated_time" content="2017-05-03T08:34:44.680Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python的学习心得">
+<meta name="twitter:description" content="一直是看着别人写的博客和教程在摸索，这次趁着有一段空闲的时间一定要记录一下自己的学习过程，于是想用几篇日志主要想记录一下自己学习机器学习以及python的过程。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Python的学习心得 | Hongge'blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hongge'blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Python的学习心得
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-20T16:06:26+08:00" content="2016-12-20">
+              2016-12-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+		
+<span>&nbsp; | &nbsp;
+<span id="busuanzi_value_page_pv" ></span>次阅读
+</span>    
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>　　一直是看着别人写的博客和教程在摸索，这次趁着有一段空闲的时间一定要记录一下自己的学习过程，于是想用几篇日志主要想记录一下自己学习机器学习以及python的过程。<br><a id="more"></a></p>
+<h2 id="Python-学习-——“人生苦短，快用python”，"><a href="#Python-学习-——“人生苦短，快用python”，" class="headerlink" title="Python 学习 ——“人生苦短，快用python”，"></a>Python 学习 ——“人生苦短，快用python”，</h2><p>　　作为一名数学建模爱好者，对于ML和DM相关算法的学习我早就饥渴难耐了。目前Matlab、Python、R在ML上的应用已经非常广泛，各种库各种包都方便。于是，我就挑了python作为我武器，屁颠屁颠的就来了。我的学习套路是来自<a href="https://zhuanlan.zhihu.com/p/23229114" target="_blank" rel="external"><strong>知乎</strong></a>，我感觉对于小白来说这条学习路线非常不错。</p>
+<p>　　我就从最简单的<a href="https://www.codecademy.com/learn" target="_blank" rel="external"><strong>Codecademy</strong></a>平台开始学起，我觉得Codecademy这个平台做的还真的是挺好的。我每天就花一个来小时，一个星期不到就把python的基础语法全部搞定了。建议想学python的童鞋们一定要来试试哇！心情烦躁的时候敲几行代码，那效果真的是不错哈哈。如果不喜欢交互式学习的童鞋，也可以在coursera上看看<a href="https://www.coursera.org/learn/python" target="_blank" rel="external"><strong>密歇根大学的python入门课</strong></a>，老师很幽默，讲的也非常细致。另外在上面知乎的连接中也有推荐<strong><a href="https://developers.google.com/edu/python/" target="_blank" rel="external">google的python课程课</a></strong>，这个也很不错，虽然我只看了它上面的讲义，视频要翻墙去油管上去看。另外<a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/" target="_blank" rel="external"><strong>廖雪峰的教程</strong></a>也可以看看，这里强行安利他的<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/" target="_blank" rel="external"><strong>Git教程</strong></a>，简直不能太棒。</p>
+<h2 id="IDE"><a href="#IDE" class="headerlink" title="IDE"></a>IDE</h2><p>　　我是在Ｕbuntu下装的Pycharm,各种插件和代码注释做的都很好，可以说是个专业的Python IDE。另外如果你习惯用sublime，其实体验也非常不错，管理一些小的项目足够了。而且sublime里面的插件那是相当丰富，你出来拿来写Python之外，还可以做很多事对吧！这里附上Ubuntu下安装Pycharm的<a href="http://www.itbulu.com/python-pycharm.html" target="_blank" rel="external"><strong>教程</strong></a>。</p>
+<h2 id="从这里开始接触ML"><a href="#从这里开始接触ML" class="headerlink" title="从这里开始接触ML"></a>从这里开始接触ML</h2><p>　　学了一点皮毛之后，确实体会到了Python的一些优势。比如同样冒泡排序，C语言写起来真的要几十行代码，Python十行内就能搞定。我也试着用Python写了一些之前的小程序，哈哈感觉良好。我学习Python的目的之一是为了应用ML算法，于是就把Python相关的库全部转上。这里强烈建议没有Mac的童鞋用Ubuntu吧！windows实在会让你很蛋疼的。装上之后，我就再一次屁颠屁颠的去学numpy，pandas。对于对于numpy和pandas的学习，我建议可以到<strong>网易云课堂</strong>上面先看一点很基础的入门课，话一个晚上足够对他们有一些很基础的了解和应用。之后我也在github上fork了一些别人的代码来读，目前感觉良好，给自己立个flag。寒假争取去kaggle大战三百回合！</p>
+<h2 id="机器学习相关Python库的学习"><a href="#机器学习相关Python库的学习" class="headerlink" title="机器学习相关Python库的学习"></a>机器学习相关Python库的学习</h2><p>　　自从上次更新至今已经半个月有余了，这半个月来我主要学习了标题上提到了5个库，接下来分享一些笔者在学习过程中的一些心得以及学习路线。<br>　　上回说到，知乎上的学习路线非常适合新手学习，经过笔者检验后确实如此，故笔者的学习路线是基于此并且增加了一些自己找到的一些学习资料。</p>
+<p>##Numpy &amp; Matplotlib &amp; Scipy &amp; Pandas &amp;Scikit-learn<br>　　首先我们来讲讲Numpy吧，对于向我这种工科狗来说有了Matlab的基础学起Nnumpy和Matplotlib确实不难，这两个库我看的比较浅，大概也就花了一整天的时间。下面附上我学习这两个库的资源：</p>
+<ul>
+<li><p><a href="http://scipy.github.io/old-wiki/pages/Tentative_NumPy_Tutorial" target="_blank" rel="external">http://scipy.github.io/old-wiki/pages/Tentative_NumPy_Tutorial</a></p>
+</li>
+<li><p><a href="https://docs.scipy.org/doc/scipy/reference/tutorial/" target="_blank" rel="external">https://docs.scipy.org/doc/scipy/reference/tutorial/</a></p>
+</li>
+</ul>
+<ul>
+<li><a href="http://nbviewer.jupyter.org/github/jrjohansson/scientific-python-lectures/blob/master/Lecture-4-Matplotlib.ipynb" target="_blank" rel="external">http://nbviewer.jupyter.org/github/jrjohansson/scientific-python-lectures/blob/master/Lecture-4-Matplotlib.ipynb</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag">#Python</a>
+          
+            <a href="/tags/Machine-Learning/" rel="tag">#Machine Learning</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/19/01_tuimian/" rel="next" title="推免全程">
+                <i class="fa fa-chevron-left"></i> 推免全程
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/04/03_qingming/" rel="prev" title="2017年清明节这天">
+                2017年清明节这天 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Fanfan Ye" />
+          <p class="site-author-name" itemprop="name">Fanfan Ye</p>
+          <p class="site-description motion-element" itemprop="description">有书读，有事做，有人爱，有所期待。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/hongge831" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-学习-——“人生苦短，快用python”，"><span class="nav-number">1.</span> <span class="nav-text">Python 学习 ——“人生苦短，快用python”，</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IDE"><span class="nav-number">2.</span> <span class="nav-text">IDE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从这里开始接触ML"><span class="nav-number">3.</span> <span class="nav-text">从这里开始接触ML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#机器学习相关Python库的学习"><span class="nav-number">4.</span> <span class="nav-text">机器学习相关Python库的学习</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fanfan Ye</span>
+</div>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+本站总访问量 <span id="busuanzi_value_site_pv"></span> &nbsp&nbsp&nbsp
+您是第<span id="busuanzi_value_site_uv"></span>个来到的小伙伴
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

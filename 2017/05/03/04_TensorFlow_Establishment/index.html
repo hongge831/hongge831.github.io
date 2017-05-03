@@ -1,0 +1,659 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Python,DeepLearning," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="写在前面　　这是一篇关于如何在Windows10下搭建TensorFlow深度学习框架的文章。由于TensorFlow支持Windows才仅仅半年而已，网上关于如何在Windows下搭建该框架的文章不少，但是，确实比较难满足绝大多数小白的需求，笔者刚刚成功，仅以此文记录过程，希望能助有需之人。（文章末尾会贴出一些别人的教程，供大家参考）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows下搭建TensorFlow深度学习框架（GPU版）">
+<meta property="og:url" content="https://github.com/hongge831/2017/05/03/04_TensorFlow_Establishment/index.html">
+<meta property="og:site_name" content="Hongge'blog">
+<meta property="og:description" content="写在前面　　这是一篇关于如何在Windows10下搭建TensorFlow深度学习框架的文章。由于TensorFlow支持Windows才仅仅半年而已，网上关于如何在Windows下搭建该框架的文章不少，但是，确实比较难满足绝大多数小白的需求，笔者刚刚成功，仅以此文记录过程，希望能助有需之人。（文章末尾会贴出一些别人的教程，供大家参考）">
+<meta property="og:image" content="https://github.com/hongge831/images/TensorFlow_Establishment/cuda.png">
+<meta property="og:image" content="https://github.com/hongge831/images/TensorFlow_Establishment/cuda2.png">
+<meta property="og:image" content="https://github.com/hongge831/images/TensorFlow_Establishment/cuda3.png">
+<meta property="og:image" content="https://github.com/hongge831/images/TensorFlow_Establishment/cuda4.png">
+<meta property="og:image" content="https://github.com/hongge831/images/TensorFlow_Establishment/cuda5.png">
+<meta property="og:image" content="https://github.com/hongge831/images/TensorFlow_Establishment/cuda6.png">
+<meta property="og:image" content="https://github.com/hongge831/images/TensorFlow_Establishment/cuda8.png">
+<meta property="og:updated_time" content="2017-05-03T14:48:47.777Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Windows下搭建TensorFlow深度学习框架（GPU版）">
+<meta name="twitter:description" content="写在前面　　这是一篇关于如何在Windows10下搭建TensorFlow深度学习框架的文章。由于TensorFlow支持Windows才仅仅半年而已，网上关于如何在Windows下搭建该框架的文章不少，但是，确实比较难满足绝大多数小白的需求，笔者刚刚成功，仅以此文记录过程，希望能助有需之人。（文章末尾会贴出一些别人的教程，供大家参考）">
+<meta name="twitter:image" content="https://github.com/hongge831/images/TensorFlow_Establishment/cuda.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Windows下搭建TensorFlow深度学习框架（GPU版） | Hongge'blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hongge'blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Windows下搭建TensorFlow深度学习框架（GPU版）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-05-03T13:40:50+08:00" content="2017-05-03">
+              2017-05-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/DeepLearning/" itemprop="url" rel="index">
+                    <span itemprop="name">DeepLearning</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+		
+<span>&nbsp; | &nbsp;
+<span id="busuanzi_value_page_pv" ></span>次阅读
+</span>    
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>　　这是一篇关于如何在Windows10下搭建TensorFlow深度学习框架的文章。由于TensorFlow支持Windows才仅仅半年而已，网上关于如何在Windows下搭建该框架的文章不少，但是，确实比较难满足绝大多数小白的需求，笔者刚刚成功，仅以此文记录过程，希望能助有需之人。（文章末尾会贴出一些别人的教程，供大家参考）<br><a id="more"></a></p>
+<h2 id="文件准备"><a href="#文件准备" class="headerlink" title="文件准备"></a>文件准备</h2><ol>
+<li><p>Anaconda3-4.2.0-Windows-x86_64.exe（Python3.5）<a href="http://pan.baidu.com/s/1pLsIW59" target="_blank" rel="external">点击下载</a></p>
+</li>
+<li><p>cuda_8.0.44_win10.ex（建议下载本地版）<a href="https://developer.nvidia.com/cuda-downloads" target="_blank" rel="external">官网下载</a><br><img src="/images/TensorFlow_Establishment/cuda.png" alt="cuda下载页面"></p>
+</li>
+<li>cudnn-8.0-windows10-x64-v5.1.zip <a href="https://developer.nvidia.com/cudnn" target="_blank" rel="external">官网下载</a></li>
+</ol>
+<p><strong>注意：</strong>官网下载需要注册账号然后填一份问卷调查,然后登陆下载即可。</p>
+<ol>
+<li>DXSDK_Jun10.exe <a href="https://www.microsoft.com/en-us/download/details.aspx?id=6812" target="_blank" rel="external">官网下载</a></li>
+</ol>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="第零步、Anaconda安装"><a href="#第零步、Anaconda安装" class="headerlink" title="第零步、Anaconda安装"></a>第零步、Anaconda安装</h3><p>　　此处省略N个字~~~</p>
+<h3 id="第一步、CUDA安装"><a href="#第一步、CUDA安装" class="headerlink" title="第一步、CUDA安装"></a>第一步、CUDA安装</h3><p>　　将下载好的local版的CUDA安装包一路next即可。安装完成并重启电脑后，在<code>cmd</code>命令行下执行<code>nvcc -V</code>命令并得到以下结果，说明你CUDA已经安装完毕。<br>　　<img src="/images/TensorFlow_Establishment/cuda2.png" alt="cuda"></p>
+<p>　　<strong>但是这不意味着CUDA安装成功，</strong>需要经过VS2013或者VS2015的样例编译测试后才能确定是否安装成功，下面会提到。</p>
+<h3 id="第二步、DXSDK-Jun10-exe安装"><a href="#第二步、DXSDK-Jun10-exe安装" class="headerlink" title="第二步、DXSDK_Jun10.exe安装"></a>第二步、DXSDK_Jun10.exe安装</h3><p>　　这步是必须的，因为后面对CUDA样例的测试需要用到这里包含的一些头文件。安装过程不是本文叙述的重点，也没有特别需要指明的地方，这里就不再赘述。可能会安装错误得到下面这种结果，但是没关系，直接点击完成退出即可。<br>　　<img src="/images/TensorFlow_Establishment/cuda3.png" alt="cuda"></p>
+<h3 id="第三步CUDA加速文件替换"><a href="#第三步CUDA加速文件替换" class="headerlink" title="第三步CUDA加速文件替换"></a>第三步CUDA加速文件替换</h3><ol>
+<li>在你完美的完成一二两步之后，而且这时候你已经下载好了<strong>cudnn-8.0-windows10-x64-v5.1.zip</strong>。解压该文件到你喜欢的目录下，你将看到<code>bin</code> <code>include</code> <code>lib</code>三个文件夹。</li>
+<li>进入<code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0</code>，将上一步得到<code>bin</code> <code>include</code> <code>lib</code>里面的文件分别拷贝至相应的文件夹中。</li>
+<li>然后你可以将<strong>cudnn-8.0-windows10-x64-v5.1.zip</strong>删除了哈哈。<h3 id="第四步CUDA案例测试"><a href="#第四步CUDA案例测试" class="headerlink" title="第四步CUDA案例测试"></a>第四步CUDA案例测试</h3>　　要进行这一步你的电脑里必须安装有VS2010以上版本的VS（<strong>一定要有哦</strong>），然后进入<code>C:\ProgramData\NVIDIA Corporation\CUDA Samples\v8.0</code>目录下，选择一个和你VS相匹配的`.sln文件进行编译，编译是需要将编译模式设置成Release和X64模式，如下图所示。<br>　　<img src="/images/TensorFlow_Establishment/cuda4.png" alt="cuda"><br>　　<img src="/images/TensorFlow_Establishment/cuda5.png" alt="cuda"></li>
+</ol>
+<p>　　然后点击生成解决方案等待编译结束即可。编译结束，打开<code>cmd</code>命令行将转到<code>c:\ProgramData\NVIDIA Corporation\CUDA Samples\v8.0\bin\win64\Release</code>目录下，执行<code>deviceQuery.exe</code>,如果看到以下结果说明安装成功。<br>　　<img src="/images/TensorFlow_Establishment/cuda6.png" alt="cuda"></p>
+<h3 id="第五步安装TensorFlow"><a href="#第五步安装TensorFlow" class="headerlink" title="第五步安装TensorFlow"></a>第五步安装TensorFlow</h3><p>　　经过以上四步的铺垫，我们终于可以正式安装TensorFlow了。</p>
+<p>　　下面两种安装方式二选一。</p>
+<p>　　<strong>在线网络安装方式</strong></p>
+<p>　　保持网络连接，从开始菜单中打开Anaconda Prompt，输入：<code>pip install tensorflow-gpu</code>然后就耐心等待吧。如果安装成功了，跳过离线安装方式。</p>
+<p>　　<strong>离线安装方式</strong></p>
+<p>　　如果在线从pip安装tensorflow总是失败，那就下载python的whl包，本地安装的。<br>下载地址： <a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/" target="_blank" rel="external">http://www.lfd.uci.edu/~gohlke/pythonlibs/</a><br>Ctrl+F搜索Tensorflow，找到： <code>tensorflow_gpu‑0.12.0rc1‑cp35‑cp35m‑win_amd64.whl</code><br>注意下载带gpu字样的版本，它才支持GPU加速。下载也不太快，视你的网速而定。<br>为了方便大家，我在百度云上上传了一份，大家也可以上<a href="http://pan.baidu.com/s/1o77WBe6" target="_blank" rel="external">百度云下载</a>不客气！<br>　　从开始菜单中打开Anaconda Prompt，输入：<code>pip install  c:\Users\Luoge\Downloads\tensorflow_gpu-0.12.0rc1-cp35-cp35m-win_amd64.whl</code><br>然后，等待安装完成就好了。</p>
+<h3 id="第六步安装测试TensorFlow"><a href="#第六步安装测试TensorFlow" class="headerlink" title="第六步安装测试TensorFlow"></a>第六步安装测试TensorFlow</h3><p>　　终于完成了所有的工作，接下来就可以测试以下直接在python下导入TensorFlow包，如果没有报错，就说明成功啦，结果如下：<br>　　<img src="/images/TensorFlow_Establishment/cuda8.png" alt="cuda"></p>
+<h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><p>　　大功告成，如果你有任何问题可以给我留言，或者邮件联系我：hongge831@@gmail.com</p>
+<p><strong>罗列一些参考资料</strong></p>
+<ul>
+<li><a href="https://antdlx.com/2017/04/19/tf-windows10an-zhuang-tensorflow-gpuban/" target="_blank" rel="external">https://antdlx.com/2017/04/19/tf-windows10an-zhuang-tensorflow-gpuban/</a></li>
+</ul>
+<ul>
+<li><p><a href="http://stackoverflow.com/questions/41007279/tensorflow-on-windows-couldnt-open-cuda-library-cudnn64-5-dll" target="_blank" rel="external">http://stackoverflow.com/questions/41007279/tensorflow-on-windows-couldnt-open-cuda-library-cudnn64-5-dll</a></p>
+</li>
+<li><p><a href="http://www.jianshu.com/p/c245d46d43f0" target="_blank" rel="external">http://www.jianshu.com/p/c245d46d43f0</a></p>
+</li>
+<li><p><a href="http://blog.csdn.net/sb19931201/article/details/53648615" target="_blank" rel="external">http://blog.csdn.net/sb19931201/article/details/53648615</a></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag">#Python</a>
+          
+            <a href="/tags/DeepLearning/" rel="tag">#DeepLearning</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/04/03_qingming/" rel="next" title="2017年清明节这天">
+                <i class="fa fa-chevron-left"></i> 2017年清明节这天
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Fanfan Ye" />
+          <p class="site-author-name" itemprop="name">Fanfan Ye</p>
+          <p class="site-description motion-element" itemprop="description">有书读，有事做，有人爱，有所期待。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/hongge831" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件准备"><span class="nav-number">2.</span> <span class="nav-text">文件准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">3.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第零步、Anaconda安装"><span class="nav-number">3.1.</span> <span class="nav-text">第零步、Anaconda安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第一步、CUDA安装"><span class="nav-number">3.2.</span> <span class="nav-text">第一步、CUDA安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二步、DXSDK-Jun10-exe安装"><span class="nav-number">3.3.</span> <span class="nav-text">第二步、DXSDK_Jun10.exe安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三步CUDA加速文件替换"><span class="nav-number">3.4.</span> <span class="nav-text">第三步CUDA加速文件替换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四步CUDA案例测试"><span class="nav-number">3.5.</span> <span class="nav-text">第四步CUDA案例测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第五步安装TensorFlow"><span class="nav-number">3.6.</span> <span class="nav-text">第五步安装TensorFlow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第六步安装测试TensorFlow"><span class="nav-number">3.7.</span> <span class="nav-text">第六步安装测试TensorFlow</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结束语"><span class="nav-number">4.</span> <span class="nav-text">结束语</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fanfan Ye</span>
+</div>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+本站总访问量 <span id="busuanzi_value_site_pv"></span> &nbsp&nbsp&nbsp
+您是第<span id="busuanzi_value_site_uv"></span>个来到的小伙伴
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
