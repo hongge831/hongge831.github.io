@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="写在前面　　头尾花了17天左右把PAT-Basci-Level的70道题刷完。虽然这些题目比较基础，但是还是花了我不少的时间。本来想马不停蹄的开刷ADVANCE的题库，但是总感觉乙级中有一些知识点还是值得总结的，故有了此篇博文。">
+<meta name="description" content="写在前面　　头尾花了17天左右把PAT-Basci-Level的70道题刷完。虽然这些题目比较基础，但是还是花了我不少的时间。本来想马不停蹄的开刷ADVANCE的题库，但是总感觉乙级中有一些知识点还是值得总结的，故有了此篇博文，请大家多多指点。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PAT_Basic 刷题心得">
 <meta property="og:url" content="https://github.com/hongge831/2017/07/27/05_PAT_Basic_summation/index.html">
 <meta property="og:site_name" content="Hongge'blog">
-<meta property="og:description" content="写在前面　　头尾花了17天左右把PAT-Basci-Level的70道题刷完。虽然这些题目比较基础，但是还是花了我不少的时间。本来想马不停蹄的开刷ADVANCE的题库，但是总感觉乙级中有一些知识点还是值得总结的，故有了此篇博文。">
-<meta property="og:updated_time" content="2017-07-27T08:48:32.972Z">
+<meta property="og:description" content="写在前面　　头尾花了17天左右把PAT-Basci-Level的70道题刷完。虽然这些题目比较基础，但是还是花了我不少的时间。本来想马不停蹄的开刷ADVANCE的题库，但是总感觉乙级中有一些知识点还是值得总结的，故有了此篇博文，请大家多多指点。">
+<meta property="og:updated_time" content="2017-07-29T12:50:17.513Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PAT_Basic 刷题心得">
-<meta name="twitter:description" content="写在前面　　头尾花了17天左右把PAT-Basci-Level的70道题刷完。虽然这些题目比较基础，但是还是花了我不少的时间。本来想马不停蹄的开刷ADVANCE的题库，但是总感觉乙级中有一些知识点还是值得总结的，故有了此篇博文。">
+<meta name="twitter:description" content="写在前面　　头尾花了17天左右把PAT-Basci-Level的70道题刷完。虽然这些题目比较基础，但是还是花了我不少的时间。本来想马不停蹄的开刷ADVANCE的题库，但是总感觉乙级中有一些知识点还是值得总结的，故有了此篇博文，请大家多多指点。">
 
 
 
@@ -304,7 +304,7 @@
       
 
       
-        <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>　　头尾花了17天左右把<strong>PAT-Basci-Level</strong>的70道题刷完。虽然这些题目比较基础，但是还是花了我不少的时间。本来想马不停蹄的开刷ADVANCE的题库，但是总感觉乙级中有一些知识点还是值得总结的，故有了此篇博文。<br><a id="more"></a></p>
+        <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>　　头尾花了17天左右把<strong>PAT-Basci-Level</strong>的70道题刷完。虽然这些题目比较基础，但是还是花了我不少的时间。本来想马不停蹄的开刷ADVANCE的题库，但是总感觉乙级中有一些知识点还是值得总结的，故有了此篇博文，请大家多多指点。<br><a id="more"></a></p>
 <h3 id="1013-数素数-20"><a href="#1013-数素数-20" class="headerlink" title="1013. 数素数 (20)"></a><strong><a href="https://www.patest.cn/contests/pat-b-practise/1013" target="_blank" rel="external">1013. 数素数 (20)</a></strong></h3><p>　　这题是一道典型的素数打表的题。对于让你输出第任意个素数的问题之前确实没遇到过。<a href="http://www.cnblogs.com/ray-coding-in-rays/p/6143201.html" target="_blank" rel="external">这里</a>给出了四种常用常见打表法的介绍。本例采用的是埃氏打表法，在<a href="https://zh.wikipedia.org/wiki/%E5%9F%83%E6%8B%89%E6%89%98%E6%96%AF%E7%89%B9%E5%B0%BC%E7%AD%9B%E6%B3%95" target="_blank" rel="external">维基百科</a>上有很生动的动画演示。其基本思想就是，在一定数据范围内，从小开始寻找素数，找到一个后就剔除所有该素数的倍数。另外，当有n个自然数，那么素数的数量的比例大概是 <strong>In(n)/n</strong>。</p>
 <h3 id="1015-德才论-25"><a href="#1015-德才论-25" class="headerlink" title="1015. 德才论 (25)"></a><strong><a href="https://www.patest.cn/contests/pat-b-practise/1015" target="_blank" rel="external">1015. 德才论 (25)</a></strong></h3><p>　　这题是一道典型的排序题，俗话说得好，乙级要想满分必须把sort函数用的很熟练。在STL中各种容器都可以直接调用sort函数。对于单元素（这里说的单元素指非结构体类的数据类型）的排序相对简单，对于结构体数据的排序写比较函数时候对于逻辑判断要求很高。这道题中的排序逻辑比较复杂。若涉及不重复的数据结构，<strong>set</strong>和<strong>map</strong>简直不要太好用。</p>
 <h3 id="1020-月饼-25"><a href="#1020-月饼-25" class="headerlink" title="1020. 月饼 (25)"></a><strong><a href="https://www.patest.cn/contests/pat-b-practise/1020" target="_blank" rel="external">1020. 月饼 (25)</a></strong></h3><p>　　这道题也是典型的排序题，关键是对单价进行排序，贵的现卖。结合上面1015那道题，这里贴出两个关于sort函数用法的帖子，以供参考。<a href="http://www.cnblogs.com/zhouxiaosong/p/5557990.html" target="_blank" rel="external"><strong>地址1~</strong></a>  <strong><a href="http://blog.csdn.net/zhouxun623/article/details/49887555" target="_blank" rel="external">地址2</a></strong></p>
