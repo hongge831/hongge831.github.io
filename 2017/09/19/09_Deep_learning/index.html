@@ -90,7 +90,7 @@
 <meta property="og:url" content="https://github.com/hongge831/2017/09/19/09_Deep_learning/index.html">
 <meta property="og:site_name" content="Hongge'blog">
 <meta property="og:description" content="This is my second course of specialization about deep_learning. I learnt this specialazation on very begin of my last summer vacation of my university life. Now I am a post-gradu, I began my second co">
-<meta property="og:updated_time" content="2017-09-19T13:57:47.172Z">
+<meta property="og:updated_time" content="2017-09-20T12:36:48.993Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MY NOTES ABOUT DEEPLEARNING ON COURSERA">
 <meta name="twitter:description" content="This is my second course of specialization about deep_learning. I learnt this specialazation on very begin of my last summer vacation of my university life. Now I am a post-gradu, I began my second co">
@@ -305,6 +305,13 @@
 
       
         <p>This is my second course of specialization about deep_learning. I learnt this specialazation on very begin of my last summer vacation of my university life. Now I am a post-gradu, I began my second course today.<br>there are some notes and thought about this course.<br><a id="more"></a></p>
+<h3 id="Week-One"><a href="#Week-One" class="headerlink" title="Week One"></a>Week One</h3><ol>
+<li>增加训练数据或者提前结束梯度下降的迭代可以降低神经网络中的方差；</li>
+<li><strong>提高训练速度</strong>归一化输入，使各个数据特征的平均值和方差为0和1；</li>
+<li>梯度消失：同下，如果参数矩阵中的<strong>每一个</strong>参数小于1则可能会出现梯度消失。<br> 梯度爆炸：对于一个很深的神经网络，由于参数做反复的乘法，导致最后的结果会成指数的爆炸。（对于参数矩阵大于1的情况）<br> <strong>解决方法（优化方法）</strong>对参数初始化的时候，设置w的值为<code>np.random.randon(shape)*np.spqrt(2/(n[l-1]))</code></li>
+<li>双边差分比单边差分更好。</li>
+<li><strong>梯度检验</strong> 在前向和后向传播的时候会计算w，dw等一系列的值，为了防止错误出现，需要进行一步梯度检验，就是做差分计算，和原来的值进行对比。（<strong>值得注意的是，在实际训练中并不需要梯度检验，当出现bug的时候才需要进行梯度检验，另外，在梯度检验的时候不要忘记正则项，且不能和dropout一起用</strong>）<h3 id="Week-Two"><a href="#Week-Two" class="headerlink" title="Week Two"></a>Week Two</h3></li>
+</ol>
 
       
     </div>
@@ -466,7 +473,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Week-One"><span class="nav-number">1.</span> <span class="nav-text">Week One</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Week-Two"><span class="nav-number">2.</span> <span class="nav-text">Week Two</span></a></li></ol></div>
             
           </div>
         </section>
