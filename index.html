@@ -307,6 +307,7 @@
         
           
             <p>今天开始学习caffe。</p>
+<h2 id="caffe的数据层和参数学习记录"><a href="#caffe的数据层和参数学习记录" class="headerlink" title="caffe的数据层和参数学习记录"></a>caffe的数据层和参数学习记录</h2><p>参考自<a href="http://www.cnblogs.com/denny402/p/5070928.html" target="_blank" rel="external">http://www.cnblogs.com/denny402/p/5070928.html</a><br>name:该层的名字，可随意<br>type：Data 代表数据来自levelDB和lmdb<br>convolution中的lr_mul是最终学习速率的一个系数，即最终的学习速率是这个数乘以base_lr。<br>激活层不改变输入的维度。<br>blob是caffe中一种数据存储对象，可以是N维，Blob可以表示为（N<em>C</em>H*W）这样一个4D数组。其中N表示图片的数量。C表示图片的通道数，H和W分别表示图片的高度和宽度。</p>
 
           
         
