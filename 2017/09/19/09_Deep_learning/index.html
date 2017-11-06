@@ -90,7 +90,7 @@
 <meta property="og:url" content="https://github.com/hongge831/2017/09/19/09_Deep_learning/index.html">
 <meta property="og:site_name" content="Hongge'blog">
 <meta property="og:description" content="This is my second course of specialization about deep_learning. I learnt this specialazation on very begin of my last summer vacation of my university life. Now I am a post-gradu, I began my second co">
-<meta property="og:updated_time" content="2017-10-10T13:45:47.766Z">
+<meta property="og:updated_time" content="2017-11-06T03:14:27.790Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MY NOTES ABOUT DEEPLEARNING ON COURSERA">
 <meta name="twitter:description" content="This is my second course of specialization about deep_learning. I learnt this specialazation on very begin of my last summer vacation of my university life. Now I am a post-gradu, I began my second co">
@@ -343,7 +343,14 @@
 <li>多任务学习：对于输出不只一维的网络，在计算LOSS时要分别计算，并求和。</li>
 <li>多任务学习：和softmax不同，这里的输出是对一张图片进行多个目标的识别，而softmax是单个输入对应对类别输出。</li>
 <li>训练一个网络去做多种识别判断比训练多个网络做多件事情往往要表现优秀。</li>
-<li><strong>端到端深度学习：</strong></li>
+<li><strong>端到端深度学习：</strong><h1 id="course-four"><a href="#course-four" class="headerlink" title="course four"></a>course four</h1><h2 id="week-3"><a href="#week-3" class="headerlink" title="week 3"></a>week 3</h2></li>
+<li>sliding windows detection is computational</li>
+<li>卷积代替，使用卷积代替全连接，实质上还是全连接。</li>
+<li>yolo(you only look once)对每一个cell都进行分类<br>？？？YOLO 是怎么找到每个cell中物体的中心位置的？如果物体很大，是不是每个cell可能都会检测到物体的中心位置？</li>
+<li>IOU stands for intersection of union,IOU的一般判断阈值是0.6或者0.7</li>
+<li>Non0-max-suppression 对同个物体只检测一次<br>选择pc最大的，然后剔除IOU小于0.5的所有框。</li>
+<li>？？？小的区域能检测到物体吗？</li>
+<li>YOLO总结<br>（1）如何构建训练集</li>
 </ol>
 
       
@@ -510,7 +517,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Week-One"><span class="nav-number">1.</span> <span class="nav-text">Week One</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#week-one-assignment1"><span class="nav-number">1.1.</span> <span class="nav-text">week one assignment1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Week-Two"><span class="nav-number">2.</span> <span class="nav-text">Week Two</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#week-three"><span class="nav-number">3.</span> <span class="nav-text">week three</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#coursera-3"><span class="nav-number"></span> <span class="nav-text">coursera 3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#week-one"><span class="nav-number">1.</span> <span class="nav-text">week one</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#week-two"><span class="nav-number">2.</span> <span class="nav-text">week two</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Week-One"><span class="nav-number">1.</span> <span class="nav-text">Week One</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#week-one-assignment1"><span class="nav-number">1.1.</span> <span class="nav-text">week one assignment1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Week-Two"><span class="nav-number">2.</span> <span class="nav-text">Week Two</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#week-three"><span class="nav-number">3.</span> <span class="nav-text">week three</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#coursera-3"><span class="nav-number"></span> <span class="nav-text">coursera 3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#week-one"><span class="nav-number">1.</span> <span class="nav-text">week one</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#week-two"><span class="nav-number">2.</span> <span class="nav-text">week two</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#course-four"><span class="nav-number"></span> <span class="nav-text">course four</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#week-3"><span class="nav-number">1.</span> <span class="nav-text">week 3</span></a></li></ol></div>
             
           </div>
         </section>
